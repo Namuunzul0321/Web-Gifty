@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 
 export const Header = () => {
   return (
@@ -32,30 +33,34 @@ export const Header = () => {
         />
       </div>
       <div>
-        <button
-          style={{
-            width: "150px",
-            height: "40px",
-            border: "1px solid black",
-            backgroundColor: "white",
-            borderRadius: "40px",
-          }}
-        >
-          Сагс
-        </button>
-        <button
-          style={{
-            width: "150px",
-            height: "40px",
-            border: "1px solid black",
-            backgroundColor: "white",
-            borderRadius: "40px",
-            marginRight: "20px",
-            marginLeft: "10px",
-          }}
-        >
-          Нэвтрэх
-        </button>
+        <Link href="/sags">
+          <button
+            style={{
+              width: "150px",
+              height: "40px",
+              border: "1px solid black",
+              backgroundColor: "white",
+              borderRadius: "40px",
+            }}
+          >
+            Сагс
+          </button>
+        </Link>
+        <Link href="/sign-in">
+          <button
+            style={{
+              width: "150px",
+              height: "40px",
+              border: "1px solid black",
+              backgroundColor: "white",
+              borderRadius: "40px",
+              marginRight: "20px",
+              marginLeft: "10px",
+            }}
+          >
+            Нэвтрэх
+          </button>
+        </Link>
       </div>
     </div>
   );
