@@ -26,6 +26,25 @@ export const SignUp = () => {
             marginTop: "30px",
           }}
         >
+          Хэрэглэгчийн нэр
+        </div>
+        <input
+          style={{
+            width: "300px",
+            height: "40px",
+            backgroundColor: "#e3e3e3",
+            borderRadius: "40px",
+            border: "none",
+            marginTop: "10px",
+            paddingLeft: "30px",
+          }}
+        ></input>
+        <div
+          style={{
+            color: "gray",
+            marginTop: "30px",
+          }}
+        >
           Цахим хаяг
         </div>
         <input
@@ -64,7 +83,7 @@ export const SignUp = () => {
             marginTop: "30px",
           }}
         >
-          Нууц үг дахин тохируулах
+          Нууц үг баталгаажуулах
         </div>
         <input
           style={{
@@ -87,12 +106,22 @@ export const SignUp = () => {
             marginTop: "30px",
           }}
         >
-          НЭВТРЭХ
+          БҮРТГҮҮЛЭХ
         </button>
       </div>
       <div
-        style={{ background: "#e3e3e3", width: "800px", height: "830px" }}
-      ></div>
+        style={{
+          background: "#e3e3e3",
+          backgroundColor: "rgb(117 190 218 / 50%)",
+          width: "1000px",
+          height: "830px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <img src="Group2.svg" style={{ width: "700px" }}></img>
+      </div>
     </div>
   );
 };

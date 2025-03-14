@@ -77,8 +77,17 @@ export const SignIn = () => {
         </div>
       </div>
       <div
-        style={{ background: "#e3e3e3", width: "800px", height: "830px" }}
-      ></div>
+        style={{
+          background: "#e3e3e3",
+          width: "1000px",
+          height: "830px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <img src="Group.svg" style={{ width: "700px" }}></img>
+      </div>
     </div>
   );
 };
