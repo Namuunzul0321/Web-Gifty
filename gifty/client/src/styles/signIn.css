@@ -1,0 +1,192 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Rubik', sans-serif;
+    --primeGray--: #6D5B67;
+  }
+
+.content{
+    width: 100vw;  /* Full width */
+    height: 100vh; /* Full height */
+    display: flex;
+    justify-content: center; /* Horizontal center */
+    align-items: center;     /* Vertical center */
+    box-sizing: border-box;
+    background: linear-gradient(230deg, rgba(115,86,104,1) 0%, rgba(45,35,42,1) 100%);
+}
+
+.logo{
+    position: absolute;
+    left: 47px;
+    top: 12px;
+    width: 147px;
+    height: 47px;
+}
+
+.container{
+    display: flex;
+    background-color: white;
+    border-radius: 25px;
+    width: 1080px;
+    height: 542px;
+    box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+}
+
+.illustration{
+    border-left: 1px solid rgb(0, 0, 0);
+    background: linear-gradient(0deg, rgba(209,209,209,1) 26%, rgba(255,255,255,1) 47%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 635px;
+}
+
+.illustration img{
+    display: flex;
+    width: 528.47px;
+    height: 336px;
+}
+
+.fillOut{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 445px;
+    height: 100%;
+}
+
+.fillOut2{
+    /* border: 1px solid rgb(53, 255, 63); */
+    width: 331px;
+    height: 380px;
+}
+
+.header{
+    font-size: 32px;
+    font-weight: bolder;
+    margin-bottom: 26px;
+    /* border: 1px solid rgb(53, 255, 63); */
+}
+
+.inputs .text{
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: var(--primeGray--);
+    /* border: 1px solid rgb(53, 255, 63); */
+}
+
+.inputs{
+    position: relative;
+    /* border: 1px solid rgb(53, 255, 63); */
+}
+
+.inputs input{
+    width: 100%;
+    height: 45px;
+    background-color: rgba(0, 0, 0, 0.1);
+    border: none;
+    border-radius: 25px;
+    padding: 20px;
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+
+.inputs input:focus {
+    outline: none;
+}
+
+.hidePassword {
+    width: 24px;
+    height: 24px; 
+    position: absolute;
+    cursor: pointer;
+    right: 16px;   
+    top: 34px;
+    transition: opacity 0.3s ease;
+}
+
+.hidePassword:hover {
+    opacity: 0.8;
+}
+
+.container-2{
+    /* border: 1px solid rgb(53, 255, 63); */
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.rememberMe{
+    display: flex;
+    /* align-items: center; */
+    position: relative;
+    /* border: 1px solid rgb(53, 255, 63); */
+}
+
+.rememberMe input{
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+    border: 1px solid #6D5B67;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.rememberMe input:checked {
+    background-color: #6D5B67; 
+  }
+
+.rememberMe label{
+    /* border: 1px solid rgb(53, 255, 63); */
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: lighter;
+    color: #6D5B67;
+    margin-left: 10px;
+}
+
+.container-2 a{
+    /* border: 1px solid rgb(53, 255, 63); */
+    display: flex;
+    font-size: 12px;
+    font-weight: lighter;
+    color: #000000;
+    margin-bottom: 20px;
+}
+
+.loginButton{
+    width: 100%;
+    height: 45px;
+    font-size: 16px;
+    background-color: #292227;
+    color: white;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.loginButton:hover{
+    background-color: #5a5358;
+}
+
+.registerButton{
+    display: flex;
+    justify-content: center;
+    font-size: 13px;
+    color: #6D5B67;
+    margin: 30px;
+}
+
+.registerButton a{
+    color: black;
+    margin-left: 10px;
+}

@@ -1,92 +1,49 @@
 "use client";
 import Link from "next/link";
+import { useState } from "react";
+import "../styles/signIn.css";
+import eyeOpen from "../../public/eye.png";
+import eyeClosed from "../../public/eye.slash.png";
 
 export const SignIn = () => {
+  const [showPassword, setShowPassword] = useState(false);
+  const [rememberMe, setRememberMe] = useState(false);
+
   return (
-    <div
-      style={{
-        width: "full",
-        height: "full",
-        display: "flex",
-        justifyContent: "space-between",
-      }}
-    >
-      <div
-        style={{
-          width: "600px",
-          display: "flex",
-          paddingLeft: "200px",
-          justifyContent: "center",
-          flexDirection: "column",
-        }}
-      >
-        <div style={{ fontSize: "30px" }}>Welcome back</div>
-        <div
-          style={{
-            color: "gray",
-            marginTop: "30px",
-          }}
-        >
-          Цахим хаяг
+    <div className="content">
+      <img src="logo_text_white.png" alt="Logo" className="logo"/>
+      <div className="container"> 
+        <div className="fillOut">
+          <div className="fillOut2"> 
+            <div className="header">Welcome back</div>
+            <div className="inputs">
+              <div className="text">Цахим хаяг</div>
+              <input></input>
+            </div>
+            <div className="inputs">
+              <div className="text">Нууц үг</div>
+              <img src={showPassword ? "/eye.svg" : "/eye.slash.svg"} alt="Toggle Password" className="hidePassword" onClick={() => setShowPassword(!showPassword)} />
+              <input type={showPassword ? "text" : "password"}/>
+            </div>
+            <div className="container-2">
+              <div className="rememberMe">
+                <input type="checkbox" checked={rememberMe} onChange={() => setRememberMe(!rememberMe)} id="remember-Me" />
+                <label htmlFor="remember-Me">Намайг сана</label>
+              </div>
+              <a href="/">Нууц үг сэргээх</a>
+            </div>
+            <Link href="/">
+              <button className="loginButton">Нэвтрэх</button>
+            </Link>
+            <div className="registerButton">
+              Бүртгэлгүй юу?
+              <a href="/">Бүртгүүлэх</a>
+            </div>
+          </div>
         </div>
-        <input
-          style={{
-            width: "300px",
-            height: "40px",
-            backgroundColor: "#e3e3e3",
-            borderRadius: "40px",
-            border: "none",
-            marginTop: "10px",
-            paddingLeft: "30px",
-          }}
-        ></input>
-        <div
-          style={{
-            color: "gray",
-            marginTop: "30px",
-          }}
-        >
-          Нууц үг
+        <div className="illustration">
+          <img src="Group.svg"/> 
         </div>
-        <input
-          style={{
-            width: "300px",
-            height: "40px",
-            backgroundColor: "#e3e3e3",
-            borderRadius: "40px",
-            border: "none",
-            marginTop: "10px",
-            paddingLeft: "30px",
-          }}
-        ></input>
-        <button
-          style={{
-            width: "300px",
-            height: "40px",
-            color: "white",
-            backgroundColor: "black",
-            borderRadius: "40px",
-            marginTop: "30px",
-          }}
-        >
-          НЭВТРЭХ
-        </button>
-        <div style={{ marginLeft: "50px", marginTop: "20px" }}>
-          Бүртгэлгүй юу?
-          <Link href="/sign-up">Бүртгүүлэх</Link>
-        </div>
-      </div>
-      <div
-        style={{
-          background: "#e3e3e3",
-          width: "1000px",
-          height: "830px",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        <img src="Group.svg" style={{ width: "700px" }}></img>
       </div>
     </div>
   );
