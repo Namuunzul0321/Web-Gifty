@@ -1,6 +1,8 @@
 {
-  "/sign-in/page": "app/sign-in/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
   "/page": "app/page.js",
-  "/email-confirmation/page": "app/email-confirmation/page.js",
-  "/sign-up/page": "app/sign-up/page.js"
+  "/sags/page": "app/sags/page.js",
+  "/sign-in/page": "app/sign-in/page.js",
+  "/sign-up/page": "app/sign-up/page.js",
+  "/email-confirmation/page": "app/email-confirmation/page.js"
 }

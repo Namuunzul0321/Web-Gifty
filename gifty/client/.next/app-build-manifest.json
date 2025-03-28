@@ -34,6 +34,11 @@
       "static/chunks/main-app.js",
       "static/css/app/email-confirmation/page.css",
       "static/chunks/app/email-confirmation/page.js"
+    ],
+    "/sags/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/sags/page.js"
     ]
   }
 }
