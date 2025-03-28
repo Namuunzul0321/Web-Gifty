@@ -30,14 +30,14 @@ export const SignIn = () => {
                 <input type="checkbox" checked={rememberMe} onChange={() => setRememberMe(!rememberMe)} id="remember-Me" />
                 <label htmlFor="remember-Me">Намайг сана</label>
               </div>
-              <a href="/">Нууц үг сэргээх</a>
+              <a href="/forgot-password">Нууц үг сэргээх</a>
             </div>
             <Link href="/">
               <button className="loginButton">Нэвтрэх</button>
             </Link>
             <div className="registerButton">
               Бүртгэлгүй юу?
-              <a href="/">Бүртгүүлэх</a>
+              <a href="/sign-up">Бүртгүүлэх</a>
             </div>
           </div>
         </div>
