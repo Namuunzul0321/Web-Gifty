@@ -29,9 +29,9 @@ export const Header = () => {
           style={{
             width: "300px",
             height: "40px",
-            border: "1px solid black",
-            backgroundColor: "white",
-            borderRadius: "40px",
+            border: "none",
+            background: "white",
+            borderRadius: "50px",
             paddingLeft: "20px",
           }}
           placeholder="Эндээс бэлгээ хайна уу"
@@ -43,9 +43,10 @@ export const Header = () => {
             style={{
               width: "150px",
               height: "40px",
-              border: "1px solid black",
+              border: "none",
               backgroundColor: "white",
-              borderRadius: "40px",
+              borderRadius: "50px",
+              color: "gray",
             }}
           >
             Сагс
@@ -56,11 +57,12 @@ export const Header = () => {
             style={{
               width: "150px",
               height: "40px",
-              border: "1px solid black",
+              border: "none",
               backgroundColor: "white",
-              borderRadius: "40px",
+              borderRadius: "50px",
               marginRight: "20px",
               marginLeft: "10px",
+              color: "gray",
             }}
           >
             Нэвтрэх
