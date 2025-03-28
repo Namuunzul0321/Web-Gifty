@@ -1,13 +1,11 @@
 "use client";
 
-import { Angilal } from "@/components/Angilal";
-import { Header } from "@/components/Header";
+import { HomePage } from "@/components/homepage/HomePage";
 
 export default function Home() {
   return (
     <div style={{ width: "full", height: "full" }}>
-      <Header />
-      <Angilal />
+      <HomePage />
     </div>
   );
 }
