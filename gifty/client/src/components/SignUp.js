@@ -1,126 +1,61 @@
 "use client";
+import Link from "next/link";
+import { useState } from "react";
+import "../styles/signUp.css";
+import eyeOpen from "../../public/eye.png";
+import eyeClosed from "../../public/eye.slash.png";
 
 export const SignUp = () => {
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [termCondition, setTermCondition] = useState(false);
+
   return (
-    <div
-      style={{
-        width: "full",
-        height: "full",
-        display: "flex",
-        justifyContent: "space-between",
-      }}
-    >
-      <div
-        style={{
-          width: "600px",
-          display: "flex",
-          paddingLeft: "200px",
-          justifyContent: "center",
-          flexDirection: "column",
-        }}
-      >
-        <div style={{ fontSize: "30px" }}>Welcome</div>
-        <div
-          style={{
-            color: "gray",
-            marginTop: "30px",
-          }}
-        >
-          Хэрэглэгчийн нэр
+    <div className="content">
+      <img src="logo_text_white.png" alt="Logo" className="logo"/>
+      <div className="container"> 
+        <div className="fillOut">
+          <div className="fillOut2"> 
+            <div className="header">Welcome</div>
+            <div className="inputs">
+              <div className="text">Хэрэглэгчийн нэр</div>
+              <input></input>
+            </div>
+            <div className="inputs">
+              <div className="text">Цахим хаяг</div>
+              <input></input>
+            </div>
+            <div className="inputs">
+              <div className="text">Нууц үг</div>
+              <img src={showPassword ? "/eye.svg" : "/eye.slash.svg"} alt="Toggle Password" className="hidePassword" onClick={() => setShowPassword(!showPassword)} />
+              <input type={showPassword ? "text" : "password"}/>
+            </div>
+            <div className="inputs">
+              <div className="text">Нууц үг баталгаажуулах</div>
+              <img src={showConfirmPassword ? "/eye.svg" : "/eye.slash.svg"} alt="Toggle Password" className="hidePassword" onClick={() => setShowConfirmPassword(!showConfirmPassword)} />
+              <input type={showConfirmPassword ? "text" : "password"}/>
+            </div>
+            <div className="container-2">
+              <div className="termCondition">
+                <input type="checkbox" checked={termCondition} onChange={() => setTermCondition(!termCondition)}  />
+                <label>
+                  <a href="">Үйлчилгээний нөхцөл</a>
+                  зөвшөөрөх 
+                </label>
+              </div>
+            </div>
+            <Link href="/">
+              <button className="registerButton">Бүртгүүлэх</button>
+            </Link>
+            <div className="loginButton">
+              Бүртгэлтэй юу?
+              <a href="/sign-in">Нэвтрэх</a>
+            </div>
+          </div>
         </div>
-        <input
-          style={{
-            width: "300px",
-            height: "40px",
-            backgroundColor: "#e3e3e3",
-            borderRadius: "40px",
-            border: "none",
-            marginTop: "10px",
-            paddingLeft: "30px",
-          }}
-        ></input>
-        <div
-          style={{
-            color: "gray",
-            marginTop: "30px",
-          }}
-        >
-          Цахим хаяг
+        <div className="illustration">
+          <img src="Group2.svg"/> 
         </div>
-        <input
-          style={{
-            width: "300px",
-            height: "40px",
-            backgroundColor: "#e3e3e3",
-            borderRadius: "40px",
-            border: "none",
-            marginTop: "10px",
-            paddingLeft: "30px",
-          }}
-        ></input>
-        <div
-          style={{
-            color: "gray",
-            marginTop: "30px",
-          }}
-        >
-          Нууц үг
-        </div>
-        <input
-          style={{
-            width: "300px",
-            height: "40px",
-            backgroundColor: "#e3e3e3",
-            borderRadius: "40px",
-            border: "none",
-            marginTop: "10px",
-            paddingLeft: "30px",
-          }}
-        ></input>
-        <div
-          style={{
-            color: "gray",
-            marginTop: "30px",
-          }}
-        >
-          Нууц үг баталгаажуулах
-        </div>
-        <input
-          style={{
-            width: "300px",
-            height: "40px",
-            backgroundColor: "#e3e3e3",
-            borderRadius: "40px",
-            border: "none",
-            marginTop: "10px",
-            paddingLeft: "30px",
-          }}
-        ></input>
-        <button
-          style={{
-            width: "300px",
-            height: "40px",
-            color: "white",
-            backgroundColor: "black",
-            borderRadius: "40px",
-            marginTop: "30px",
-          }}
-        >
-          БҮРТГҮҮЛЭХ
-        </button>
-      </div>
-      <div
-        style={{
-          background: "#e3e3e3",
-          backgroundColor: "rgb(117 190 218 / 50%)",
-          width: "1000px",
-          height: "830px",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        <img src="Group2.svg" style={{ width: "700px" }}></img>
       </div>
     </div>
   );

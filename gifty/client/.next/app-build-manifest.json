@@ -11,20 +11,29 @@
       "static/chunks/main-app.js",
       "static/chunks/app/page.js"
     ],
-    "/sags/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/sags/page.js"
-    ],
     "/sign-in/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
+      "static/css/app/sign-in/page.css",
       "static/chunks/app/sign-in/page.js"
+    ],
+    "/forgot-password/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/forgot-password/page.css",
+      "static/chunks/app/forgot-password/page.js"
     ],
     "/sign-up/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
+      "static/css/app/sign-up/page.css",
       "static/chunks/app/sign-up/page.js"
+    ],
+    "/email-confirmation/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/email-confirmation/page.css",
+      "static/chunks/app/email-confirmation/page.js"
     ]
   }
 }
