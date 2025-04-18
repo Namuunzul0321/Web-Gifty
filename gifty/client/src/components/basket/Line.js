@@ -1,5 +1,6 @@
 "use client";
 
+
 export default function Line({ currentStage }) {
   const stages = [
     { id: 1, label: "Сагс", icon: "🛒" }, 

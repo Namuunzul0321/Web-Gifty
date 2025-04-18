@@ -1,6 +1,8 @@
 "use client";
 import { useState } from "react";
-import Line from "./Line";
+import Line from "../basket/Line";
+import Footer from "@/components/Footer";
+
 
 export default function Payment({ onNext, onPrev }) {
   const [paymentMethod, setPaymentMethod] = useState("card");
