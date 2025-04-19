@@ -5,7 +5,7 @@ export const Special = () => {
     <div>
       <img
         src="Valentine.svg"
-        style={{ width: "1454px", height: "400px", marginTop: "-20px" }}
+        style={{ width: "full", height: "400px", marginTop: "-20px" }}
       ></img>
     </div>
   );

@@ -11,10 +11,30 @@
       "static/chunks/main-app.js",
       "static/chunks/app/page.js"
     ],
-    "/sags/page": [
+    "/tsagaanSar/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/sags/page.js"
+      "static/chunks/app/tsagaanSar/page.js"
+    ],
+    "/mart/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/mart/page.js"
+    ],
+    "/tsereg/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/tsereg/page.js"
+    ],
+    "/valentine/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/valentine/page.js"
+    ],
+    "/_not-found/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/_not-found/page.js"
     ]
   }
 }
