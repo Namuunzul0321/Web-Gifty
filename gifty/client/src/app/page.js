@@ -4,7 +4,12 @@ import { HomePage } from "@/components/homepage/HomePage";
 
 export default function Home() {
   return (
-    <div style={{ width: "full", height: "full" }}>
+    <div
+      style={{
+        width: "full",
+        height: "full",
+      }}
+    >
       <HomePage />
     </div>
   );

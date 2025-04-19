@@ -1,4 +1,7 @@
 {
-  "/sags/page": "app/sags/page.js",
-  "/page": "app/page.js"
+  "/_not-found/page": "app/_not-found/page.js",
+  "/page": "app/page.js",
+  "/tsereg/page": "app/tsereg/page.js",
+  "/valentine/page": "app/valentine/page.js",
+  "/tsagaanSar/page": "app/tsagaanSar/page.js"
 }
