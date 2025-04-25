@@ -15,6 +15,7 @@ export const SpecialShops = () => {
           <img src="Store6.svg" className="ml-[25px]" />
           <img src="Store7.svg" className="ml-[25px]" />
           <img src="Store8.svg" className="ml-[25px]" />
+          
         </div>
       </div>
     </div>

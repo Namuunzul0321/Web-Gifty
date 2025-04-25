@@ -21,6 +21,7 @@
       "static/chunks/main-app.js",
       "static/chunks/app/mart/page.js"
     ],
+<<<<<<< Updated upstream
     "/tsereg/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
@@ -32,9 +33,12 @@
       "static/chunks/app/valentine/page.js"
     ],
     "/_not-found/page": [
+=======
+    "/store-page/page": [
+>>>>>>> Stashed changes
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/_not-found/page.js"
+      "static/chunks/app/store-page/page.js"
     ]
   }
 }

@@ -1,7 +1,13 @@
 {
+<<<<<<< Updated upstream
   "/_not-found/page": "app/_not-found/page.js",
   "/page": "app/page.js",
   "/tsereg/page": "app/tsereg/page.js",
   "/valentine/page": "app/valentine/page.js",
   "/tsagaanSar/page": "app/tsagaanSar/page.js"
+=======
+  "/page": "app/page.js",
+  "/mart/page": "app/mart/page.js",
+  "/store-page/page": "app/store-page/page.js"
+>>>>>>> Stashed changes
 }
