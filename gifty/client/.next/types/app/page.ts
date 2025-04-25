@@ -1,4 +1,4 @@
-// File: /Users/nazu/Web-Gifty/gifty/client/src/app/page.js
+// File: C:\Users\Hitech\Documents\GitHub\Web-Gifty\gifty\client\src\app\page.js
 import * as entry from '../../../src/app/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
