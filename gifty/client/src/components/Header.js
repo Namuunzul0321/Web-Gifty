@@ -23,7 +23,7 @@ export const Header = () => {
       </div>
 
       <div className="absolute top-[15%] right-[20px]">
-        <Link href={"/cart"}>
+        <Link href={"/sags"}>
           <button className="w-[131px] h-[45px] text-[#6D5B67] bg-black/0 text-[16px] border border-[#6D5B67] rounded-full cursor-pointer transition duration-100 relative mx-[7px] hover:bg-black/10 active:bg-black/20">
             <div className="absolute top-[9px] right-[27px]">
               <div className="flex">

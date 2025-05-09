@@ -3,81 +3,47 @@ import { useState } from "react";
 import Line from "../basket/Line";
 import Footer from "@/components/Footer";
 
-
 export default function Payment({ onNext, onPrev }) {
   const [paymentMethod, setPaymentMethod] = useState("card");
 
   return (
-    <div style={{ padding: "40px", maxWidth: "900px", margin: "auto" }}>
-      <h2 style={{ fontSize: "24px", fontWeight: "bold", marginBottom: "20px" }}>
-        Төлбөрийн мэдээлэл
-      </h2>
+    <div className="p-10 max-w-3xl mx-auto">
+      <h2 className="text-2xl font-bold mb-5">Төлбөрийн мэдээлэл</h2>
 
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          gap: "15px",
-          background: "white",
-          padding: "20px",
-          borderRadius: "10px",
-          boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
-        }}
-      >
-        <label style={{ fontSize: "18px", fontWeight: "500" }}>
+      <div className="flex flex-col gap-4 bg-white p-6 rounded-xl shadow-md">
+        <label className="text-lg font-medium flex items-center">
           <input
             type="radio"
             value="card"
             checked={paymentMethod === "card"}
             onChange={() => setPaymentMethod("card")}
-            style={{ marginRight: "10px" }}
+            className="mr-3"
           />
           Карт (Credit/Debit)
         </label>
 
-        <label style={{ fontSize: "18px", fontWeight: "500" }}>
+        <label className="text-lg font-medium flex items-center">
           <input
             type="radio"
             value="paypal"
             checked={paymentMethod === "paypal"}
             onChange={() => setPaymentMethod("paypal")}
-            style={{ marginRight: "10px" }}
+            className="mr-3"
           />
           PayPal
         </label>
       </div>
 
-      <div
-        style={{
-          marginTop: "30px",
-          display: "flex",
-          justifyContent: "space-between",
-        }}
-      >
+      <div className="mt-8 flex justify-between">
         <button
           onClick={onPrev}
-          style={{
-            padding: "12px 18px",
-            background: "#ccc",
-            border: "none",
-            borderRadius: "8px",
-            fontSize: "16px",
-            cursor: "pointer",
-          }}
+          className="px-6 py-3 bg-gray-300 rounded-lg text-base font-medium hover:bg-gray-400"
         >
           ← Буцах
         </button>
         <button
           onClick={onNext}
-          style={{
-            padding: "12px 18px",
-            background: "#5225cc",
-            color: "white",
-            border: "none",
-            borderRadius: "8px",
-            fontSize: "16px",
-            cursor: "pointer",
-          }}
+          className="px-6 py-3 bg-purple-800 text-white rounded-lg text-base font-medium hover:bg-purple-700"
         >
           Үргэлжлүүлэх →
         </button>

@@ -1,35 +1,30 @@
 "use client";
 
-
 export default function Line({ currentStage }) {
   const stages = [
-    { id: 1, label: "Сагс", icon: "🛒" }, 
-    { id: 2, label: "Хайрцаг сонгох", icon: "🎁" }, 
+    { id: 1, label: "Сагс", icon: "🛒" },
+    { id: 2, label: "Хайрцаг сонгох", icon: "🎁" },
     { id: 3, label: "Төлбөр", icon: "💳" },
     { id: 4, label: "Баталгаажсан", icon: "✅" },
   ];
 
   return (
-    <nav style={{ display: "flex", alignItems: "center", justifyContent: "center", padding: "10px", background: "#eee" }}>
+    <nav className="flex items-center justify-center px-4 py-3 bg-gray-200">
       {stages.map((stage, index) => (
-        <div key={stage.id} style={{ display: "flex", alignItems: "center" }}>
-          <span style={{
-            fontSize: "16px",
-            color: stage.id <= currentStage ? "#000" : "#aaa",
-            fontWeight: stage.id === currentStage ? "bold" : "normal",
-            display: "flex",
-            alignItems: "center",
-            gap: "5px"
-          }}>
+        <div key={stage.id} className="flex items-center">
+          <span
+            className={`text-sm flex items-center gap-1 ${
+              stage.id === currentStage ? "font-bold text-black" : stage.id < currentStage ? "text-black" : "text-gray-400"
+            }`}
+          >
             {stage.icon} {stage.label}
           </span>
           {index < stages.length - 1 && (
-            <div style={{
-              width: "50px",
-              height: "2px",
-              background: stage.id < currentStage ? "#000" : "#aaa",
-              margin: "0 10px"
-            }} />
+            <div
+              className={`w-[50px] h-[2px] mx-2 ${
+                stage.id < currentStage ? "bg-black" : "bg-gray-400"
+              }`}
+            />
           )}
         </div>
       ))}

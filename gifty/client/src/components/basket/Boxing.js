@@ -20,136 +20,76 @@ export default function Boxing({ onNext }) {
   const formatPrice = (price) => `${price.toLocaleString()}₮`;
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
-      {/* Main cont */}
-      <div style={{ flex: 1 }}>
-        <div
-          style={{
-            maxWidth: "1200px",
-            margin: "30px auto",
-            display: "flex",
-            justifyContent: "space-between",
-          }}
-        >
-          <div style={{ width: "70%" }}>
-            <h2 style={{ fontSize: "22px", marginBottom: "15px" }}>
-              Personalized Gift Boxes
-            </h2>
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(3, 1fr)",
-                gap: "20px",
-              }}
-            >
-              {giftBoxes.map((box) => (
+    <div className="flex flex-col min-h-screen">
+      {/* Main */}
+      <div className="flex-1 max-w-6xl mx-auto px-4 py-8 flex flex-col lg:flex-row gap-8">
+        {/* Gift */}
+        <div className="w-full lg:w-3/4">
+          <h2 className="text-2xl font-semibold mb-4">Personalized Gift Boxes</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
+            {giftBoxes.map((box) => (
+              <div
+                key={box.id}
+                onClick={() => setSelectedBox(box)}
+                className={`p-4 rounded-xl text-center border cursor-pointer transition-colors ${
+                  selectedBox.id === box.id
+                    ? "border-purple-800 bg-purple-50"
+                    : "border-gray-300 bg-white"
+                }`}
+              >
                 <div
-                  key={box.id}
-                  onClick={() => setSelectedBox(box)}
-                  style={{
-                    textAlign: "center",
-                    border: selectedBox.id === box.id ? "2px solid #5a3d5c" : "1px solid #ddd",
-                    borderRadius: "10px",
-                    padding: "15px",
-                    cursor: "pointer",
-                    background: selectedBox.id === box.id ? "#f5e1f7" : "white",
-                  }}
+                  className="w-full max-w-[120px] h-[120px] mx-auto flex items-center justify-center rounded-xl"
+                  style={{ backgroundColor: selectedColor }}
                 >
-                  <div
-                    style={{
-                      width: "100%",
-                      maxWidth: "120px",
-                      height: "120px",
-                      backgroundColor: selectedColor,
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      borderRadius: "10px",
-                      margin: "auto",
-                    }}
-                  >
-                    <img
-                      src={box.img}
-                      alt={box.name}
-                      style={{
-                        width: "100%",
-                        maxWidth: "100px",
-                        height: "auto",
-                        objectFit: "contain",
-                      }}
-                      onError={(e) => (e.target.src = "/box.svg")}
-                    />
-                  </div>
-                  <p style={{ fontSize: "16px", fontWeight: "bold", marginTop: "10px" }}>
-                    {formatPrice(box.price)}
-                  </p>
-                  <p style={{ fontSize: "14px", color: "#666" }}>{box.name}</p>
+                  <img
+                    src={box.img}
+                    alt={box.name}
+                    className="max-w-[100px] h-auto object-contain"
+                    onError={(e) => (e.target.src = "/box.svg")}
+                  />
                 </div>
-              ))}
-            </div>
-
-            {/* Color Selection */}
-            <h3 style={{ fontSize: "18px", margin: "20px 0 10px" }}>Choose a Color</h3>
-            <div style={{ display: "flex", gap: "10px" }}>
-              {colors.map((color) => (
-                <div
-                  key={color}
-                  onClick={() => setSelectedColor(color)}
-                  style={{
-                    width: "30px",
-                    height: "30px",
-                    backgroundColor: color,
-                    borderRadius: "50%",
-                    cursor: "pointer",
-                    border: selectedColor === color ? "3px solid #333" : "1px solid #ddd",
-                  }}
-                ></div>
-              ))}
-            </div>
+                <p className="text-base font-bold mt-3">{formatPrice(box.price)}</p>
+                <p className="text-sm text-gray-600">{box.name}</p>
+              </div>
+            ))}
           </div>
 
-          {/* Sum */}
-          <div
-            style={{
-              width: "25%",
-              padding: "20px",
-              background: "#f8f8f8",
-              borderRadius: "10px",
-            }}
+          {/* Color zasandaa */}
+          <h3 className="text-lg mt-8 mb-2 font-semibold">Choose a Color</h3>
+          <div className="flex gap-3">
+            {colors.map((color) => (
+              <div
+                key={color}
+                onClick={() => setSelectedColor(color)}
+                className={`w-8 h-8 rounded-full cursor-pointer border ${
+                  selectedColor === color ? "border-gray-800 border-4" : "border-gray-300"
+                }`}
+                style={{ backgroundColor: color }}
+              ></div>
+            ))}
+          </div>
+        </div>
+
+        {/* Summ*/}
+        <div className="w-full lg:w-1/4 bg-gray-100 p-6 rounded-xl shadow-sm">
+          <p className="text-base mb-2">
+            Төлбөр: <strong>{formatPrice(selectedBox.price)}</strong>
+          </p>
+          <p className="text-base mb-2">
+            Тоо ширхэг: <strong>1</strong>
+          </p>
+          <p className="text-base mb-4">
+            Хүргэлт: <strong>{formatPrice(10000)}</strong>
+          </p>
+          <p className="text-lg font-bold mb-6">
+            Нийт дүн: {formatPrice(selectedBox.price + 10000)}
+          </p>
+          <button
+            onClick={() => onNext(selectedBox, selectedColor)}
+            className="w-full py-3 bg-purple-800 text-white rounded-md hover:bg-purple-700 transition"
           >
-            <p style={{ fontSize: "16px", marginBottom: "10px" }}>
-              Төлбөр: <strong>{formatPrice(selectedBox.price)}</strong>
-            </p>
-            <p style={{ fontSize: "16px", marginBottom: "10px" }}>
-              Тоо ширхэг: <strong>1</strong>
-            </p>
-            <p style={{ fontSize: "16px", marginBottom: "20px" }}>
-              Хүргэлт: <strong>{formatPrice(10000)}</strong>
-            </p>
-            <p
-              style={{
-                fontSize: "18px",
-                fontWeight: "bold",
-                marginBottom: "20px",
-              }}
-            >
-              Нийт дүн: {formatPrice(selectedBox.price + 10000)}
-            </p>
-            <button
-              onClick={() => onNext(selectedBox, selectedColor)}
-              style={{
-                width: "100%",
-                padding: "12px",
-                background: "#5a3d5c",
-                color: "white",
-                border: "none",
-                borderRadius: "5px",
-                cursor: "pointer",
-              }}
-            >
-              Үргэлжлүүлэх →
-            </button>
-          </div>
+            Үргэлжлүүлэх →
+          </button>
         </div>
       </div>
 
