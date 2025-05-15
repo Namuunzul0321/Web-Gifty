@@ -1,29 +1,36 @@
+// server/index.js
+
 const express = require("express");
-const app = express();
-const PORT = process.env.PORT || 5001;
-
-app.get("/", (req, res) => {
-  res.send("Hello from Gifty backend!");
-});
-
-app
-  .listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
-  })
-  .on("error", (err) => {
-    if (err.code === "EADDRINUSE") {
-      console.error(`Port ${PORT} is already in use`);
-    } else {
-      console.error(err);
-    }
-  });
-require("dotenv").config();
 const mongoose = require("mongoose");
+const dotenv = require("dotenv");
+const cors = require("cors");
 
+// .env доторх утгуудыг ачааллах
+dotenv.config();
+
+const app = express();
+
+// Middleware
+app.use(cors());
+app.use(express.json());
+
+// MongoDB холболт
 mongoose
-  .connect(process.env.MONGO_URI, {
+  .connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
-  .then(() => console.log("MongoDB connected"))
-  .catch((err) => console.error("Connection error:", err));
+  .then(() => console.log("MongoDB холбогдлоо"))
+  .catch((err) => console.error("MongoDB холболтын алдаа:", err));
+
+// Жишээ маршрут
+app.get("/", (req, res) => {
+  res.send("Backend ажиллаж байна");
+});
+
+// Порт
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Сервер порт ${PORT} дээр ажиллаж байна`));
+
+const userRoutes = require("./routes/userRoutes");
+app.use("/api/users", userRoutes);
