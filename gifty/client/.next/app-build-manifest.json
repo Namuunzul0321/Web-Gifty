@@ -20,8 +20,8 @@
     "/sign-up/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/sign-up/page.js",
-      "static/css/app/sign-up/page.css"
+      "static/css/app/sign-up/page.css",
+      "static/chunks/app/sign-up/page.js"
     ]
   }
 }
