@@ -22,12 +22,16 @@ export default function CategorySidebar() {
 
   const [expandedId, setExpandedId] = useState(null);
 
+  const [minBudget, setMinBudget] = useState('');
+  const [maxBudget, setMaxBudget] = useState('');
+
   const handleToggle = (id) => {
     setExpandedId(prev => (prev === id ? null : id));
   };
 
   return (
-    <div className="w-[343px]">
+    
+    <div className="max-lg:w-[80%]">
       <div className="h-[53px] text-[24px] font-medium">Бүтээгдэхүүний ангилал</div>
 
       {categories.map((category) => (
@@ -39,7 +43,7 @@ export default function CategorySidebar() {
           >
             <span className="text-[18px] text-[#6D5B67] font-light h-[45px] flex items-center">{category.name}</span>
              <svg
-              className={`w-4 h-4 transition-transform duration-200 ${
+              className={`w-4 h-4 transition-transform duration-300 ease-in-out ${
                 expandedId === category.id ? "rotate-90" : "rotate-0"
               }`}
               fill="none"
@@ -53,7 +57,7 @@ export default function CategorySidebar() {
 
           {/* Subcategories */}
           {expandedId === category.id && (
-            <div className="pl-4 mt-1 space-y-2">
+            <div className="pl-3 mt-1 space-y-1">
               {category.subcategories.map((sub, index) => (
                 <div key={index} className="text-[16px] text-[#6D5B67] font-light cursor-pointer transition duration-150ms hover:bg-gray-100 rounded">
                   {sub}
@@ -73,15 +77,19 @@ export default function CategorySidebar() {
             <span className="font-bold">₮</span>
             <input
               type="number"
+              value={minBudget}
+              onChange={(e) => setMinBudget(e.target.value)}
               placeholder="Min"
-              className="w-[100px] border border-[#6D5B67] rounded px-2 py-1 text-[16px]"
+              className="w-[100px] max-lg:w-[200px] border border-[#6D5B67] rounded px-2 py-1 text-[16px]"
             />
             <span className="font-bold">-</span>
             <span className="font-bold">₮</span>
             <input
               type="number"
+              value={maxBudget}
+              onChange={(e) => setMaxBudget(e.target.value)}
               placeholder="Max"
-              className="w-[100px] border border-[#6D5B67] rounded px-2 py-1 text-[16px]"
+              className="w-[100px] max-lg:w-[200px] border border-[#6D5B67] rounded px-2 py-1 text-[16px]"
             />
           </div>
         </div>

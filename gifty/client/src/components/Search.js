@@ -38,25 +38,26 @@ export const Search = ({
   return (
     <div className="overflow-x-hidden overflow-y-hidden flex flex-col gap-[20px]">
         <Header />
-        <div className="w-screen "></div>
+        <div className="w-screen h-[50px]"></div>
 
-        <div className="flex justify-center mt-[80px]">
-            <div className="w-[1575px] h-auto flex justify-between">
+        <div className="flex justify-center mt-[40px] px-4">
+            <div className="w-full max-w-[1575px] flex flex-col lg:flex-row gap-6">
                 {/* Left */}
-                <div className="w-[343px] h-auto">
+                <div className="w-full max-lg:flex justify-center">
                   <CategorySidebar/>
                 </div>
                 {/* Right */}
-                <div className="w-[1200px] h-auto">
+                <div className="w-full lg:w-[calc(100%-343px-24px)]">
                   {/* Title, Filter */}
-                  <div className="flex justify-between mb-[10px]">
+                  <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
                     <div>
-                      <div className="text-[32px] font-medium">Илэрц</div>
-                      <div className="text-[16px] font-light text-[#6D5B67]">Хайлтын илэрц 999 бараа</div>
+                      <div className="text-[24px] md:text-[32px] font-medium">Илэрц</div>
+                      <div className="text-[14px] md:text-[16px] font-light text-[#6D5B67]">Хайлтын илэрц 999 бараа</div>
                     </div>
 
-                    <div className="w-[160px] h-[50px] border border-[#6D5B67] rounded-full pl-[10px] pr-[10px] flex items-center justify-center">
-                      <select className="text-[16px] font-light flex items-center">
+                    {/* Filter */}
+                    <div className="w-full md:w-[160px] h-[50px] border border-[#6D5B67] rounded-full px-4 flex items-center">
+                      <select className="w-full text-[16px] font-light bg-transparent focus:outline-none">
                         <option value="latest">Шинэ нь эхэнд</option>
                         <option value="oldest">Хуучин нь эхэнд</option>
                         <option value="price_high">Үнэтэй нь эхэнд</option>
@@ -70,8 +71,8 @@ export const Search = ({
 
                   {/* Retailers */}
                   <div className="mb-[10px]">
-                    <div className="text-[32px] font-medium mb-[15px] ">Дэлгүүр</div> 
-                      <div className="w-full overflow-x-auto overflow-y-hidden scroll-smooth snap-x h-[280px]">
+                    <div className="text-[24px] md:text-[32px] font-medium mb-[15px]">Дэлгүүр</div> 
+                      <div className="w-full overflow-x-auto scroll-smooth snap-x h-[240px] md:h-[280px]">
                         <div className="flex gap-[19px] flex-nowrap">
                           {[...Array(7)].map((_, index) => (
                             <div key={index} className="snap-start">
@@ -83,20 +84,17 @@ export const Search = ({
                   </div>
 
                   {/* Products */}
-                  <div className="h-auto">
-                    <div className="text-[32px] font-medium mb-[15px]">Бүтээгдэхүүн</div>
-                    <div className="flex flex-wrap gap-[13.5px]">
+                  <div>
+                    <div className="text-[24px] md:text-[32px] font-medium mb-[0.7%]">Бүтээгдэхүүн</div>
+                    <div className="flex flex-wrap justify-between">
                       {[...Array(10)].map((_, index) => (
-                        <div key={index} className="snap-start">
-                          <ProductButton/>
-                        </div>
+                       <ProductButton key={index} />
                       ))}
                     </div>
                   </div>
                 </div>
             </div>
         </div>
-
 
         <Footer />
     </div>
