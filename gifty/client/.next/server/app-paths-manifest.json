@@ -1,6 +1,7 @@
 {
   "/favicon.ico/route": "app/favicon.ico/route.js",
-  "/sign-up/page": "app/sign-up/page.js",
-  "/sign-in/page": "app/sign-in/page.js",
-  "/page": "app/page.js"
+  "/delguuruud/[id]/page": "app/delguuruud/[id]/page.js",
+  "/page": "app/page.js",
+  "/sags/page": "app/sags/page.js",
+  "/sign-in/page": "app/sign-in/page.js"
 }

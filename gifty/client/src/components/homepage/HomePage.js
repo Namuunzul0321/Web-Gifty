@@ -8,6 +8,7 @@ import ProductButton from "../buttons/product_button";
 import ProductButtonSpecial from "../buttons/product_button_special";
 import OccasionButton from "../buttons/occasion_button";
 import { SpecialShops } from "./SpecialShops";
+import { BayruudList } from "./BayruudList";
 
 export const HomePage = () => {
   return (
@@ -19,64 +20,64 @@ export const HomePage = () => {
         <img src="Valentine.svg" />
       </div>
       {/* Bayruud */}
-      <div className="w-screen h-[485px] flex justify-center">
-        <div className="w-[1870px] h-full flex gap-[27px] overflow-x-auto whitespace-nowrap no-scrollbar">
-          <OccasionButton
-            occasionName="Valentines day"
-            date="02.14"
-            occasionImg="/bayruud/valentine.png"
-            link=""
-          />
-          <OccasionButton
-            occasionName="цагаан сар"
-            date="03.01 - 03.05"
-            occasionImg="/bayruud/tsagaan.png"
-            link=""
-          />
-          <OccasionButton
-            occasionName="март 8"
-            date="03.08"
-            occasionImg="/bayruud/mart.png"
-            link=""
-          />
-          <OccasionButton
-            occasionName="цэргийн баяр"
-            date="03.18"
-            occasionImg="/bayruud/soldier_day.png"
-            link=""
-          />
-          <OccasionButton
-            occasionName="хүүхдийн баяр"
-            date="06.01"
-            occasionImg="/bayruud/kid_day.png"
-            link=""
-          />
-          <OccasionButton
-            occasionName="наадам"
-            date="07.11 - 07.15"
-            occasionImg="/bayruud/naadam.png"
-            link=""
-          />
-          <OccasionButton
-            occasionName="halloween"
-            date="10-31"
-            occasionImg="/bayruud/halloween.png"
-            link=""
-          />
-          <OccasionButton
-            occasionName="christmas"
-            date="12.25"
-            occasionImg="/bayruud/christmas.png"
-            link=""
-          />
-          <OccasionButton
-            occasionName="new year"
-            date="12.31"
-            occasionImg="/bayruud/new_year.png"
-            link=""
-          />
-        </div>
-      </div>
+<div className="w-screen h-[485px] flex justify-center">
+  <div className="w-[1870px] h-full flex gap-[27px] overflow-x-auto whitespace-nowrap no-scrollbar">
+    <OccasionButton
+      occasionName="Valentine’s Day"
+      date="02.14"
+      occasionImg="/bayruud/valentine.png"
+      link="/bayruud/10"
+    />
+    <OccasionButton
+      occasionName="Цагаан сар"
+      date="03.01 - 03.05"
+      occasionImg="/bayruud/tsagaan.png"
+      link="/bayruud/11"
+    />
+    <OccasionButton
+      occasionName="Март 8"
+      date="03.08"
+      occasionImg="/bayruud/mart.png"
+      link="/bayruud/12"
+    />
+    <OccasionButton
+      occasionName="Цэргийн баяр"
+      date="03.18"
+      occasionImg="/bayruud/soldier_day.png"
+      link="/bayruud/13"
+    />
+    <OccasionButton
+      occasionName="Хүүхдийн баяр"
+      date="06.01"
+      occasionImg="/bayruud/kid_day.png"
+      link="/bayruud/14"
+    />
+    <OccasionButton
+      occasionName="Наадам"
+      date="07.11 - 07.15"
+      occasionImg="/bayruud/naadam.png"
+      link="/bayruud/15"
+    />
+    <OccasionButton
+      occasionName="Halloween"
+      date="10.31"
+      occasionImg="/bayruud/halloween.png"
+      link="/bayruud/16"
+    />
+    <OccasionButton
+      occasionName="Christmas"
+      date="12.25"
+      occasionImg="/bayruud/christmas.png"
+      link="/bayruud/17"
+    />
+    <OccasionButton
+      occasionName="New Year"
+      date="12.31"
+      occasionImg="/bayruud/new_year.png"
+      link="/bayruud/18"
+    />
+  </div>
+</div>
       {/* Delguuruud */}
       <SpecialShops />
 
