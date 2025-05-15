@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { useRouter } from "next/router";
-import styles from "../../styles/StoreForm.module.css";
+import { useRouter } from "next/navigation";
 
 export default function StoreForm({ store }) {
   const router = useRouter();
@@ -31,9 +30,7 @@ export default function StoreForm({ store }) {
 
       const response = await fetch(url, {
         method,
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
 
@@ -51,92 +48,117 @@ export default function StoreForm({ store }) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className={styles.form}>
-      <h2>{store ? "Дэлгүүр засах" : "Шинэ дэлгүүр нэмэх"}</h2>
+    <form
+      onSubmit={handleSubmit}
+      className="max-w-2xl mx-auto p-6 bg-white shadow-md rounded space-y-6"
+    >
+      <h2 className="text-2xl font-bold">
+        {store ? "Дэлгүүр засах" : "Шинэ дэлгүүр нэмэх"}
+      </h2>
 
-      {error && <div className={styles.error}>{error}</div>}
+      {error && (
+        <div className="bg-red-100 text-red-700 p-3 rounded">{error}</div>
+      )}
 
-      <div className={styles.formGroup}>
-        <label htmlFor="name">Дэлгүүрийн нэр*</label>
+      <div>
+        <label htmlFor="name" className="block font-medium mb-1">
+          Дэлгүүрийн нэр*
+        </label>
         <input
           type="text"
           id="name"
           name="name"
+          required
           value={formData.name}
           onChange={handleChange}
-          required
+          className="w-full border border-gray-300 p-2 rounded"
         />
       </div>
 
-      <div className={styles.formGroup}>
-        <label htmlFor="description">Тайлбар*</label>
+      <div>
+        <label htmlFor="description" className="block font-medium mb-1">
+          Тайлбар*
+        </label>
         <textarea
           id="description"
           name="description"
+          rows="4"
+          required
           value={formData.description}
           onChange={handleChange}
-          required
-          rows="4"
+          className="w-full border border-gray-300 p-2 rounded"
         />
       </div>
 
-      <div className={styles.formGroup}>
-        <label htmlFor="location">Байршил*</label>
+      <div>
+        <label htmlFor="location" className="block font-medium mb-1">
+          Байршил*
+        </label>
         <input
           type="text"
           id="location"
           name="location"
+          required
           value={formData.location}
           onChange={handleChange}
-          required
+          className="w-full border border-gray-300 p-2 rounded"
         />
       </div>
 
-      <div className={styles.formGroup}>
-        <label htmlFor="logoUrl">Логоны URL</label>
+      <div>
+        <label htmlFor="logoUrl" className="block font-medium mb-1">
+          Логоны URL
+        </label>
         <input
           type="url"
           id="logoUrl"
           name="logoUrl"
           value={formData.logoUrl}
           onChange={handleChange}
+          className="w-full border border-gray-300 p-2 rounded"
         />
       </div>
 
-      <div className={styles.formGroup}>
-        <label htmlFor="contactPhone">Утасны дугаар</label>
+      <div>
+        <label htmlFor="contactPhone" className="block font-medium mb-1">
+          Утасны дугаар
+        </label>
         <input
           type="tel"
           id="contactPhone"
           name="contactPhone"
           value={formData.contactPhone}
           onChange={handleChange}
+          className="w-full border border-gray-300 p-2 rounded"
         />
       </div>
 
-      <div className={styles.formGroup}>
-        <label htmlFor="contactEmail">И-мэйл хаяг</label>
+      <div>
+        <label htmlFor="contactEmail" className="block font-medium mb-1">
+          И-мэйл хаяг
+        </label>
         <input
           type="email"
           id="contactEmail"
           name="contactEmail"
           value={formData.contactEmail}
           onChange={handleChange}
+          className="w-full border border-gray-300 p-2 rounded"
         />
       </div>
 
-      <div className={styles.buttons}>
+      <div className="flex justify-between">
         <button
           type="button"
-          className={styles.cancelButton}
           onClick={() => router.back()}
+          className="bg-gray-300 text-gray-800 px-4 py-2 rounded hover:bg-gray-400"
         >
           Буцах
         </button>
         <button
           type="submit"
-          className={styles.submitButton}
           disabled={loading}
+          className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
         >
           {loading ? "Ачааллаж байна..." : store ? "Хадгалах" : "Нэмэх"}
         </button>
