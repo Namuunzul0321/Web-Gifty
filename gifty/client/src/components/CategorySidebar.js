@@ -80,7 +80,7 @@ export default function CategorySidebar() {
               value={minBudget}
               onChange={(e) => setMinBudget(e.target.value)}
               placeholder="Min"
-              className="w-[100px] max-lg:w-[200px] border border-[#6D5B67] rounded px-2 py-1 text-[16px]"
+              className="w-[100px] max-lg:w-[200px] max-sm:w-[100px] max-md:w-[150px] border border-[#6D5B67] rounded px-2 py-1 text-[16px]"
             />
             <span className="font-bold">-</span>
             <span className="font-bold">₮</span>
@@ -89,7 +89,7 @@ export default function CategorySidebar() {
               value={maxBudget}
               onChange={(e) => setMaxBudget(e.target.value)}
               placeholder="Max"
-              className="w-[100px] max-lg:w-[200px] border border-[#6D5B67] rounded px-2 py-1 text-[16px]"
+              className="w-[100px] max-lg:w-[200px] max-sm:w-[100px]  max-md:w-[150px] border border-[#6D5B67] rounded px-2 py-1 text-[16px]"
             />
           </div>
         </div>
