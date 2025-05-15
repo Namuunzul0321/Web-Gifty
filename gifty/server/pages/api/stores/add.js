@@ -2,24 +2,17 @@ import dbConnect from "../../../lib/mongoose";
 import Store from "../../../models/Store";
 
 export default async function handler(req, res) {
-  await dbConnect();
-
   if (req.method === "POST") {
+    await dbConnect();
+
     try {
       const store = new Store(req.body);
       await store.save();
-      res.status(201).json(store);
+      res.status(201).json({ message: "Store saved!", store });
     } catch (error) {
       res.status(400).json({ error: error.message });
     }
-  } else if (req.method === "GET") {
-    try {
-      const stores = await Store.find();
-      res.status(200).json(stores);
-    } catch (error) {
-      res.status(500).json({ error: error.message });
-    }
   } else {
-    res.status(405).json({ message: "Method Not Allowed" });
+    res.status(405).json({ message: "Only POST allowed" });
   }
 }
