@@ -47,8 +47,9 @@ export const HomePage = () => {
     router.push("/add-product");
   };
   return (
-    <div className="overflow-x-hidden overflow-y-hidden flex flex-col gap-[20px]">
+    <div className="overflow-x-hidden overflow-y-hidden flex flex-col items-center gap-[20px]">
       <Header />
+      <div className="w-screen h-[30px]"></div>
       {user?.isAdmin && (
         <button
           onClick={handleAddShop}
@@ -82,12 +83,14 @@ export const HomePage = () => {
           ➕ Бүтээгдэхүүн нэмэх
         </button>
       )}
-      <div>
+      
+      <div className="flex justify-center">
         <img src="Valentine.svg" />
       </div>
+
       {/* Bayruud */}
-      <div className="w-screen h-[485px] flex justify-center">
-        <div className="w-[1870px] h-full flex gap-[27px] overflow-x-auto whitespace-nowrap no-scrollbar">
+      <div>
+        <div className="w-[1870px] h-[500px] flex gap-[27px] overflow-x-auto scroll-smooth custom-scrollbar max-lg:gap-[14px] max-lg:w-[1024px] max-lg:h-[370px] max-md:gap-[12px] max-md:w-[768px] max-sm:gap-[8px] max-sm:w-[640px] max-sm:h-[265px]">
           <OccasionButton
             occasionName="Valentine’s Day"
             date="02.14"
@@ -145,15 +148,16 @@ export const HomePage = () => {
         </div>
       </div>
       {/* Delguuruud */}
+
       <SpecialShops />
 
       {/* Category */}
       <div className="w-screen flex justify-center">
         <div className="w-[1575px]">
-          <div className="font-bold text-[32px] w-full h-[50px] mb-[15px]">
+          <div className="font-bold text-[32px] w-full h-[50px] mb-[15px] max-sm:flex max-sm:justify-center">
             Category
           </div>
-          <div className="flex w-full gap-[39px] flex-wrap">
+          <div className="flex w-full gap-[39px] flex-wrap justify-center max-sm:gap-[10px]">
             <ProductButtonLong
               storeName="Store Name"
               category="Category"
@@ -260,10 +264,10 @@ export const HomePage = () => {
       {/* Category 2*/}
       <div className="w-screen flex justify-center">
         <div className="w-[1575px]">
-          <div className="font-bold text-[32px] w-full h-[50px] mb-[15px]">
+          <div className="font-bold text-[32px] w-full h-[50px] mb-[15px] max-sm:flex max-sm:justify-center">
             Category
           </div>
-          <div className="flex w-full gap-[39px] flex-wrap">
+          <div className="flex w-full gap-[39px] flex-wrap justify-center max-sm:gap-[10px]">
             <ProductButtonSpecial
               storeName="Store Name"
               category="Category"
@@ -290,10 +294,10 @@ export const HomePage = () => {
       {/* Category 3*/}
       <div className="w-screen flex justify-center">
         <div className="w-[1575px]">
-          <div className="font-bold text-[32px] w-full h-[50px] mb-[15px]">
+          <div className="font-bold text-[32px] w-full h-[50px] mb-[15px] max-sm:flex max-sm:justify-center">
             Category
           </div>
-          <div className="flex w-full gap-[39px] flex-wrap">
+          <div className="flex w-full gap-[39px] flex-wrap justify-center max-sm:gap-[10px]">
             <ProductButton
               storeName="Store Name"
               category="Category"
