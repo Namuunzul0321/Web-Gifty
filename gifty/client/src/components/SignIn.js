@@ -12,7 +12,7 @@ export const SignIn = () => {
   const [error, setError] = useState("");
 
   const handleLogin = async () => {
-    setError(""); // reset error before login
+    setError("");
     try {
       const response = await fetch("http://localhost:5001/api/users/login", {
         method: "POST",
@@ -26,8 +26,8 @@ export const SignIn = () => {
 
       if (response.ok) {
         alert("Амжилттай нэвтэрлээ!");
-        localStorage.setItem("token", data.token);
-        window.location.href = "/"; // Redirect to home or dashboard
+        localStorage.setItem("user", JSON.stringify(data.user));
+        window.location.href = "/";
       } else {
         setError(data.message || "Нэвтрэхэд алдаа гарлаа");
       }

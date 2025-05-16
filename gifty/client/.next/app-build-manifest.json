@@ -6,26 +6,42 @@
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
+    "/add-product/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/add-product/page.js"
+    ],
     "/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/page.js"
-    ],
-    "/delguuruud/[id]/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/delguuruud/[id]/page.js"
-    ],
-    "/sags/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/sags/page.js"
     ],
     "/sign-in/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/css/app/sign-in/page.css",
       "static/chunks/app/sign-in/page.js"
+    ],
+    "/sign-up/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/sign-up/page.css",
+      "static/chunks/app/sign-up/page.js"
+    ],
+    "/add-store/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/add-store/page.js"
+    ],
+    "/delguuruud/[id]/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/delguuruud/[id]/page.js"
+    ],
+    "/bayruud/[id]/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/bayruud/[id]/page.js"
     ]
   }
 }
