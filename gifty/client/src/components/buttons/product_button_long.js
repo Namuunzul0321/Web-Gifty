@@ -14,7 +14,7 @@ export default function ProductButtonLong({
 }) {
   return (
     <Link href={link}>
-        <div className="w-[497px] h-[356px] border border-[#6D5B67] rounded-[10px] cursor-pointer transition duration-150ms hover:shadow-[0_5px_15px_rgba(0,0,0,0.2)] active:shadow-[0_2px_7px_rgba(0,0,0,0.2)] max-sm:w-[400px]">
+        <div className="w-[497px] h-[356px] border border-[#6D5B67] rounded-[10px] cursor-pointer transition duration-150ms hover:shadow-[0_5px_15px_rgba(0,0,0,0.2)] active:shadow-[0_2px_7px_rgba(0,0,0,0.2)]">
             <div className="w-full h-[63.7px] flex pt-[10px] pl-[15px] pr-[15px]">
                 <div className="w-[44px] h-[44px] border border-[#6D5B67] rounded-full overflow-hidden flex justify-center items-center">
                     {storeImg && <img src={storeImg}/>}

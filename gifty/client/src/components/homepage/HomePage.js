@@ -8,22 +8,19 @@ import ProductButton from "../buttons/product_button";
 import ProductButtonSpecial from "../buttons/product_button_special";
 import OccasionButton from "../buttons/occasion_button";
 import { SpecialShops } from "./SpecialShops";
-import { Navigation } from "./Navigation";
-
 
 export const HomePage = () => {
   return (
-    <div className="overflow-x-hidden overflow-y-hidden flex flex-col items-center gap-[20px]">
+    <div className="overflow-x-hidden overflow-y-hidden flex flex-col gap-[20px]">
       <Header />
-      <div className="w-screen h-[30px]"></div>
-      
-      <div className="flex justify-center">
+      <Angilal />
+      <div className="w-screen h-[90px]"></div>
+      <div>
         <img src="Valentine.svg" />
       </div>
-
       {/* Bayruud */}
-      <div>
-        <div className="w-[1870px] h-[500px] flex gap-[27px] overflow-x-auto scroll-smooth custom-scrollbar max-lg:gap-[14px] max-lg:w-[1024px] max-lg:h-[370px] max-md:gap-[12px] max-md:w-[768px] max-sm:gap-[8px] max-sm:w-[640px] max-sm:h-[265px]">
+      <div className="w-screen h-[485px] flex justify-center">
+        <div className="w-[1870px] h-full flex gap-[27px] overflow-x-auto whitespace-nowrap no-scrollbar">
           <OccasionButton
             occasionName="Valentines day"
             date="02.14"
@@ -80,19 +77,16 @@ export const HomePage = () => {
           />
         </div>
       </div>
-      
       {/* Delguuruud */}
-      
       <SpecialShops />
-      
 
       {/* Category */}
       <div className="w-screen flex justify-center">
         <div className="w-[1575px]">
-          <div className="font-bold text-[32px] w-full h-[50px] mb-[15px] max-sm:flex max-sm:justify-center">
+          <div className="font-bold text-[32px] w-full h-[50px] mb-[15px]">
             Category
           </div>
-          <div className="flex w-full gap-[39px] flex-wrap justify-center max-sm:gap-[10px]">
+          <div className="flex w-full gap-[39px] flex-wrap">
             <ProductButtonLong
               storeName="Store Name"
               category="Category"
@@ -199,10 +193,10 @@ export const HomePage = () => {
       {/* Category 2*/}
       <div className="w-screen flex justify-center">
         <div className="w-[1575px]">
-          <div className="font-bold text-[32px] w-full h-[50px] mb-[15px] max-sm:flex max-sm:justify-center">
+          <div className="font-bold text-[32px] w-full h-[50px] mb-[15px]">
             Category
           </div>
-          <div className="flex w-full gap-[39px] flex-wrap justify-center max-sm:gap-[10px]">
+          <div className="flex w-full gap-[39px] flex-wrap">
             <ProductButtonSpecial
               storeName="Store Name"
               category="Category"
@@ -229,10 +223,10 @@ export const HomePage = () => {
       {/* Category 3*/}
       <div className="w-screen flex justify-center">
         <div className="w-[1575px]">
-          <div className="font-bold text-[32px] w-full h-[50px] mb-[15px] max-sm:flex max-sm:justify-center">
+          <div className="font-bold text-[32px] w-full h-[50px] mb-[15px]">
             Category
           </div>
-          <div className="flex w-full gap-[39px] flex-wrap justify-center max-sm:gap-[10px]">
+          <div className="flex w-full gap-[39px] flex-wrap">
             <ProductButton
               storeName="Store Name"
               category="Category"
@@ -357,7 +351,6 @@ export const HomePage = () => {
         </div>
       </div>
       <Footer />
-      <div className="hidden w-screen h-[100  px] max-md:block"></div>
     </div>
   );
 };

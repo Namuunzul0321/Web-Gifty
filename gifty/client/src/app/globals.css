@@ -8,23 +8,3 @@
       scrollbar-width: none;
     }
 }
-
-/* Custom Scrollbar */
-.custom-scrollbar::-webkit-scrollbar {
-  height: 7px;
-}
-
-.custom-scrollbar::-webkit-scrollbar-track {
-  background: rgba(240, 240, 240, 0.0);
-  border-radius: 9999px;
-}
-
-.custom-scrollbar::-webkit-scrollbar-thumb {
-  background: linear-gradient(90deg,rgb(174, 169, 198) 0%, rgb(217, 184, 206) 50%, rgb(200, 180, 183) 100%);
-  border-radius: 9999px;
-  transition-duration: 200ms;
-}
-
-.custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background-color: #b376b3;
-}
