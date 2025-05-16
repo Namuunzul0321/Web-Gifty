@@ -33,6 +33,7 @@ export const SignUp = () => {
           username,
           email,
           password,
+          isAdmin: false,
         }),
       });
 
