@@ -71,8 +71,8 @@ export const Search = ({
 
                   {/* Retailers */}
                   <div className="mb-[10px]">
-                    <div className="text-[24px] md:text-[32px] font-medium mb-[15px] max-sm:flex max-sm:justify-center">Дэлгүүр</div> 
-                      <div className="w-full overflow-y-hidden overflow-x-auto scroll-smooth custom-scrollbar snap-x h-[260px] max-md:h-[200px] max-sm:h-[150px]">
+                    <div className="text-[24px] md:text-[32px] font-medium mb-[15px]">Дэлгүүр</div> 
+                      <div className="w-full overflow-x-auto scroll-smooth snap-x h-[240px] md:h-[280px]">
                         <div className="flex gap-[19px] flex-nowrap">
                           {[...Array(7)].map((_, index) => (
                             <div key={index} className="snap-start">
@@ -85,8 +85,8 @@ export const Search = ({
 
                   {/* Products */}
                   <div>
-                    <div className="text-[24px] md:text-[32px] font-medium mb-[15px] max-sm:flex max-sm:justify-center">Бүтээгдэхүүн</div>
-                    <div className="flex w-full gap-[13.5px] flex-wrap justify-center max-sm:gap-[10px]">
+                    <div className="text-[24px] md:text-[32px] font-medium mb-[0.7%]">Бүтээгдэхүүн</div>
+                    <div className="flex flex-wrap justify-between">
                       {[...Array(10)].map((_, index) => (
                        <ProductButton key={index} />
                       ))}
