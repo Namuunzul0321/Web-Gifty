@@ -1,17 +1,37 @@
 "use client";
-import { Angilal } from "@/components/homepage/Angilal";
+import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
+
 import { Header } from "@/components/Header";
 import Footer from "../Footer";
-import StoreButtonWithoutBorder from "../buttons/store_button_without_border";
+import { SpecialShops } from "./SpecialShops";
+import OccasionButton from "../buttons/occasion_button";
 import ProductButtonLong from "../buttons/product_button_long";
 import ProductButton from "../buttons/product_button";
 import ProductButtonSpecial from "../buttons/product_button_special";
-import OccasionButton from "../buttons/occasion_button";
-import { SpecialShops } from "./SpecialShops";
-import { BayruudList } from "./BayruudList";
-import { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
-import AddProduct from "../AddProducts";
+
+const occasions = [
+  { name: "Valentine’s Day", date: "02.14", img: "/bayruud/valentine.png", link: "/bayruud/18" },
+  { name: "Цагаан сар", date: "03.01 - 03.05", img: "/bayruud/tsagaan.png", link: "/bayruud/11" },
+  { name: "Март 8", date: "03.08", img: "/bayruud/mart.png", link: "/bayruud/12" },
+  { name: "Цэргийн баяр", date: "03.18", img: "/bayruud/soldier_day.png", link: "/bayruud/13" },
+  { name: "Хүүхдийн баяр", date: "06.01", img: "/bayruud/kid_day.png", link: "/bayruud/14" },
+  { name: "Наадам", date: "07.11 - 07.15", img: "/bayruud/naadam.png", link: "/bayruud/17" },
+  { name: "Halloween", date: "10.31", img: "/bayruud/halloween.png", link: "/bayruud/16" },
+  { name: "Christmas", date: "12.25", img: "/bayruud/christmas.png", link: "/bayruud/15" },
+  { name: "New Year", date: "12.31", img: "/bayruud/new_year.png", link: "/bayruud/15" },
+];
+
+const dummyProducts = Array(10).fill({
+  storeName: "Store Name",
+  category: "Category",
+  storeImg: "Group.svg",
+  productImg: "Group.svg",
+  productName: "Product Name",
+  productPrice: "1’000",
+  ratings: "0",
+  rate: 1,
+});
 
 export const HomePage = () => {
   const [user, setUser] = useState(null);
@@ -20,12 +40,9 @@ export const HomePage = () => {
 
   useEffect(() => {
     const storedUser = localStorage.getItem("user");
-    if (storedUser) {
-      setUser(JSON.parse(storedUser));
-    }
+    if (storedUser) setUser(JSON.parse(storedUser));
 
-    // Продуктуудыг серверээс татах
-    const fetchProducts = async () => {
+    (async () => {
       try {
         const res = await fetch("http://localhost:5001/api/products");
         if (!res.ok) throw new Error("Продукт татахад алдаа гарлаа");
@@ -34,393 +51,83 @@ export const HomePage = () => {
       } catch (error) {
         console.error("Error fetching products:", error);
       }
-    };
-
-    fetchProducts();
+    })();
   }, []);
 
-  const handleAddShop = () => {
-    router.push("/add-store");
-  };
-
-  const handleAddProduct = () => {
-    router.push("/add-product");
-  };
   return (
     <div className="overflow-x-hidden overflow-y-hidden flex flex-col items-center gap-[20px]">
       <Header />
-      <div className="w-screen h-[30px]"></div>
+      <div className="w-screen h-[30px]" />
       {user?.isAdmin && (
-        <button
-          onClick={handleAddShop}
-          style={{
-            backgroundColor: "pink",
-            color: "black",
-            padding: "10px 20px",
-            border: "none",
-            borderRadius: "5px",
-            cursor: "pointer",
-            marginTop: "80px",
-            marginBottom: "-20px",
-          }}
-        >
-          ➕ Дэлгүүр нэмэх
-        </button>
+        <>
+          <button
+            onClick={() => router.push("/add-store")}
+            className="bg-pink-400 text-black py-2 px-5 rounded cursor-pointer mt-[80px] mb-[-20px]"
+          >
+            ➕ Дэлгүүр нэмэх
+          </button>
+          <button
+            onClick={() => router.push("/add-product")}
+            className="bg-pink-400 text-black py-2 px-5 rounded cursor-pointer mt-2"
+          >
+            ➕ Бүтээгдэхүүн нэмэх
+          </button>
+        </>
       )}
-      {user?.isAdmin && (
-        <button
-          onClick={handleAddProduct}
-          style={{
-            backgroundColor: "pink",
-            color: "black",
-            padding: "10px 20px",
-            border: "none",
-            borderRadius: "5px",
-            cursor: "pointer",
-            marginTop: "10px",
-          }}
-        >
-          ➕ Бүтээгдэхүүн нэмэх
-        </button>
-      )}
-      
+
       <div className="flex justify-center">
-        <img src="Valentine.svg" />
+        <img src="Valentine.svg" alt="Valentine" />
       </div>
 
       {/* Bayruud */}
       <div>
         <div className="w-[1870px] h-[500px] flex gap-[27px] overflow-x-auto scroll-smooth custom-scrollbar max-lg:gap-[14px] max-lg:w-[1024px] max-lg:h-[370px] max-md:gap-[12px] max-md:w-[768px] max-sm:gap-[8px] max-sm:w-[640px] max-sm:h-[265px]">
-          <OccasionButton
-            occasionName="Valentine’s Day"
-            date="02.14"
-            occasionImg="/bayruud/valentine.png"
-            link="/bayruud/10"
-          />
-          <OccasionButton
-            occasionName="Цагаан сар"
-            date="03.01 - 03.05"
-            occasionImg="/bayruud/tsagaan.png"
-            link="/bayruud/11"
-          />
-          <OccasionButton
-            occasionName="Март 8"
-            date="03.08"
-            occasionImg="/bayruud/mart.png"
-            link="/bayruud/12"
-          />
-          <OccasionButton
-            occasionName="Цэргийн баяр"
-            date="03.18"
-            occasionImg="/bayruud/soldier_day.png"
-            link="/bayruud/13"
-          />
-          <OccasionButton
-            occasionName="Хүүхдийн баяр"
-            date="06.01"
-            occasionImg="/bayruud/kid_day.png"
-            link="/bayruud/14"
-          />
-          <OccasionButton
-            occasionName="Наадам"
-            date="07.11 - 07.15"
-            occasionImg="/bayruud/naadam.png"
-            link="/bayruud/15"
-          />
-          <OccasionButton
-            occasionName="Halloween"
-            date="10.31"
-            occasionImg="/bayruud/halloween.png"
-            link="/bayruud/16"
-          />
-          <OccasionButton
-            occasionName="Christmas"
-            date="12.25"
-            occasionImg="/bayruud/christmas.png"
-            link="/bayruud/17"
-          />
-          <OccasionButton
-            occasionName="New Year"
-            date="12.31"
-            occasionImg="/bayruud/new_year.png"
-            link="/bayruud/18"
-          />
+          {occasions.map(({ name, date, img, link }) => (
+            <OccasionButton
+              key={name}
+              occasionName={name}
+              date={date}
+              occasionImg={img}
+              link={link}
+            />
+          ))}
         </div>
       </div>
-      {/* Delguuruud */}
 
+      {/* Delguuruud */}
       <SpecialShops />
 
-      {/* Category */}
-      <div className="w-screen flex justify-center">
-        <div className="w-[1575px]">
-          <div className="font-bold text-[32px] w-full h-[50px] mb-[15px] max-sm:flex max-sm:justify-center">
-            Category
-          </div>
-          <div className="flex w-full gap-[39px] flex-wrap justify-center max-sm:gap-[10px]">
-            <ProductButtonLong
-              storeName="Store Name"
-              category="Category"
-              storeImg="Group.svg"
-              productImg="Group.svg"
-              productName="Product Name"
-              productPrice="1’000"
-              ratings="0"
-              rate={1}
-            />
-            <ProductButton
-              storeName="Store Name"
-              category="Category"
-              storeImg="Group.svg"
-              productImg="Group.svg"
-              productName="Product Name"
-              productPrice="1’000"
-              ratings="0"
-              rate={1}
-            />
-            <ProductButton
-              storeName="Store Name"
-              category="Category"
-              storeImg="Group.svg"
-              productImg="Group.svg"
-              productName="Product Name"
-              productPrice="1’000"
-              ratings="0"
-              rate={1}
-            />
-            <ProductButton
-              storeName="Store Name"
-              category="Category"
-              storeImg="Group.svg"
-              productImg="Group.svg"
-              productName="Product Name"
-              productPrice="1’000"
-              ratings="0"
-              rate={1}
-            />
-            <ProductButton
-              storeName="Store Name"
-              category="Category"
-              storeImg="Group.svg"
-              productImg="Group.svg"
-              productName="Product Name"
-              productPrice="1’000"
-              ratings="0"
-              rate={1}
-            />
-            <ProductButton
-              storeName="Store Name"
-              category="Category"
-              storeImg="Group.svg"
-              productImg="Group.svg"
-              productName="Product Name"
-              productPrice="1’000"
-              ratings="0"
-              rate={1}
-            />
-            <ProductButton
-              storeName="Store Name"
-              category="Category"
-              storeImg="Group.svg"
-              productImg="Group.svg"
-              productName="Product Name"
-              productPrice="1’000"
-              ratings="0"
-              rate={1}
-            />
-            <ProductButton
-              storeName="Store Name"
-              category="Category"
-              storeImg="Group.svg"
-              productImg="Group.svg"
-              productName="Product Name"
-              productPrice="1’000"
-              ratings="0"
-              rate={1}
-            />
-            <ProductButton
-              storeName="Store Name"
-              category="Category"
-              storeImg="Group.svg"
-              productImg="Group.svg"
-              productName="Product Name"
-              productPrice="1’000"
-              ratings="0"
-              rate={1}
-            />
-            <ProductButtonLong
-              storeName="Store Name"
-              category="Category"
-              storeImg="Group.svg"
-              productImg="Group.svg"
-              productName="Product Name"
-              productPrice="1’000"
-              ratings="0"
-              rate={1}
-            />
-          </div>
-        </div>
-      </div>
-      {/* Category 2*/}
-      <div className="w-screen flex justify-center">
-        <div className="w-[1575px]">
-          <div className="font-bold text-[32px] w-full h-[50px] mb-[15px] max-sm:flex max-sm:justify-center">
-            Category
-          </div>
-          <div className="flex w-full gap-[39px] flex-wrap justify-center max-sm:gap-[10px]">
-            <ProductButtonSpecial
-              storeName="Store Name"
-              category="Category"
-              storeImg="Group.svg"
-              productImg="Group.svg"
-              productName="Product Name"
-              productPrice="1’000"
-              ratings="0"
-              rate={1}
-            />
-            <ProductButtonSpecial
-              storeName="Store Name"
-              category="Category"
-              storeImg="Group.svg"
-              productImg="Group.svg"
-              productName="Product Name"
-              productPrice="1’000"
-              ratings="0"
-              rate={1}
-            />
-          </div>
-        </div>
-      </div>
-      {/* Category 3*/}
-      <div className="w-screen flex justify-center">
-        <div className="w-[1575px]">
-          <div className="font-bold text-[32px] w-full h-[50px] mb-[15px] max-sm:flex max-sm:justify-center">
-            Category
-          </div>
-          <div className="flex w-full gap-[39px] flex-wrap justify-center max-sm:gap-[10px]">
-            <ProductButton
-              storeName="Store Name"
-              category="Category"
-              storeImg="Group.svg"
-              productImg="Group.svg"
-              productName="Product Name"
-              productPrice="1’000"
-              ratings="0"
-              rate={1}
-            />
-            <ProductButton
-              storeName="Store Name"
-              category="Category"
-              storeImg="Group.svg"
-              productImg="Group.svg"
-              productName="Product Name"
-              productPrice="1’000"
-              ratings="0"
-              rate={1}
-            />
-            <ProductButton
-              storeName="Store Name"
-              category="Category"
-              storeImg="Group.svg"
-              productImg="Group.svg"
-              productName="Product Name"
-              productPrice="1’000"
-              ratings="0"
-              rate={1}
-            />
-            <ProductButton
-              storeName="Store Name"
-              category="Category"
-              storeImg="Group.svg"
-              productImg="Group.svg"
-              productName="Product Name"
-              productPrice="1’000"
-              ratings="0"
-              rate={1}
-            />
-            <ProductButton
-              storeName="Store Name"
-              category="Category"
-              storeImg="Group.svg"
-              productImg="Group.svg"
-              productName="Product Name"
-              productPrice="1’000"
-              ratings="0"
-              rate={1}
-            />
-            <ProductButton
-              storeName="Store Name"
-              category="Category"
-              storeImg="Group.svg"
-              productImg="Group.svg"
-              productName="Product Name"
-              productPrice="1’000"
-              ratings="0"
-              rate={1}
-            />
-            <ProductButton
-              storeName="Store Name"
-              category="Category"
-              storeImg="Group.svg"
-              productImg="Group.svg"
-              productName="Product Name"
-              productPrice="1’000"
-              ratings="0"
-              rate={1}
-            />
-            <ProductButton
-              storeName="Store Name"
-              category="Category"
-              storeImg="Group.svg"
-              productImg="Group.svg"
-              productName="Product Name"
-              productPrice="1’000"
-              ratings="0"
-              rate={1}
-            />
-            <ProductButton
-              storeName="Store Name"
-              category="Category"
-              storeImg="Group.svg"
-              productImg="Group.svg"
-              productName="Product Name"
-              productPrice="1’000"
-              ratings="0"
-              rate={1}
-            />
-            <ProductButton
-              storeName="Store Name"
-              category="Category"
-              storeImg="Group.svg"
-              productImg="Group.svg"
-              productName="Product Name"
-              productPrice="1’000"
-              ratings="0"
-              rate={1}
-            />
-            <ProductButton
-              storeName="Store Name"
-              category="Category"
-              storeImg="Group.svg"
-              productImg="Group.svg"
-              productName="Product Name"
-              productPrice="1’000"
-              ratings="0"
-              rate={1}
-            />
-            <ProductButton
-              storeName="Store Name"
-              category="Category"
-              storeImg="Group.svg"
-              productImg="Group.svg"
-              productName="Product Name"
-              productPrice="1’000"
-              ratings="0"
-              rate={1}
-            />
-          </div>
-        </div>
-      </div>
+      {/* Categories */}
+      {[dummyProducts, dummyProducts.slice(0, 10), dummyProducts.slice(0, 2)].map(
+        (categoryProducts, idx) => {
+          const isSpecial = idx === 1;
+          const title = "Category";
+          return (
+            <div key={idx} className="w-screen flex justify-center">
+              <div className="w-[1575px]">
+                <div className="font-bold text-[32px] w-full h-[50px] mb-[15px] max-sm:flex max-sm:justify-center">
+                  {title}
+                </div>
+                <div className="flex w-full gap-[39px] flex-wrap justify-center max-sm:gap-[10px]">
+                  {categoryProducts.map((product, i) => {
+                    if (isSpecial) {
+                      return (
+                        <ProductButtonSpecial key={i} {...product} />
+                      );
+                    }
+                    if (idx === 0 && i === 0 || i === categoryProducts.length - 1) {
+                      // First and last item as ProductButtonLong for first and third category
+                      return <ProductButtonLong key={i} {...product} />;
+                    }
+                    return <ProductButton key={i} {...product} />;
+                  })}
+                </div>
+              </div>
+            </div>
+          );
+        }
+      )}
+
       <Footer />
     </div>
   );

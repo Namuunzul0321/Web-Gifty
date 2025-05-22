@@ -6,19 +6,19 @@ export default function Footer() {
     <div className="border-t-1 pt-[20px]">
       <div className="flex justify-center pl-[20px] w-screen h-[200px] gap-[37px]">
         <div className="w-[367px]">
-          <img src="logo_text.png" className="w-[206px]"/>
+          <img src="/logo_text.png" className="w-[206px]"/>
           <div className="flex flex-start justify-between mt-[20px] max-sm:flex-col max-sm:gap-[10px]">
             <a href="https://instagram.com">
-              <img src="ig_icon.svg" className="cursor-pointer"/>
+              <img src="/ig_icon.svg" className="cursor-pointer"/>
             </a>
             <a href="https://facebook.com">
-              <img src="fb_icon.svg" className="cursor-pointer"/>
+              <img src="/fb_icon.svg" className="cursor-pointer"/>
             </a>
             <a href="https://x.com">
-              <img src="twit_icon.svg" className="cursor-pointer"/>
+              <img src="/twit_icon.svg" className="cursor-pointer"/>
             </a>
             <a href="https://youtube.com">
-              <img src="yt_icon.svg" className="cursor-pointer"/>
+              <img src="/yt_icon.svg" className="cursor-pointer"/>
             </a>
           </div>
         </div>

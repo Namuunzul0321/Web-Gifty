@@ -14,11 +14,11 @@ export const Header = () => {
         </div> */}
 
         <Link href={"/"}>
-          <img src="logo_text.png" className="absolute top-[15%] left-[30px] w-[147px] h-auto cursor-pointer"/>
+          <img src="/logo_text.png" className="absolute top-[15%] left-[30px] w-[147px] h-auto cursor-pointer"/>
         </Link>
 
         <div className="w-[30%] h-[45px] border border-[#6D5B67] rounded-full flex items-center absolute top-[15%] left-1/2 -translate-x-1/2 max-md:hidden">
-          <img src="magnifyingglass.svg" className="w-[20px] h-[20px] m-[10px] "/>
+          <img src="/magnifyingglass.svg" className="w-[20px] h-[20px] m-[10px] "/>
           <input type="text" id="search" placeholder="Эндээс бэлгээ хайна уу" className="text-[16px] w-[500px] bg-none border-none focus:outline-none"></input>
         </div>
 
@@ -30,7 +30,7 @@ export const Header = () => {
                   Сагс (<div className  ="font-bold text-black">0</div>)
                 </div>
               </div>
-              <img src="cart.svg" className="absolute left-[18px] top-[14px] w-[20px] h-[18px] max-lg:left-[11px] max-md:w-[25px] max-md:h-[25px] max-md:left-[10px] max-md:top-[12px]"/>
+              <img src="/cart.svg" className="absolute left-[18px] top-[14px] w-[20px] h-[18px] max-lg:left-[11px] max-md:w-[25px] max-md:h-[25px] max-md:left-[10px] max-md:top-[12px]"/>
             </button>
           </Link>
           <Link href={"/sign-in"}>
@@ -38,7 +38,7 @@ export const Header = () => {
               <div className="absolute top-[9px] right-[20px]  max-lg:hidden">
                 Нэвтрэх
               </div>
-              <img src="person.svg" className="absolute left-[18px] top-[14px] w-[15px] h-[16px] max-lg:left-[14px]"/>
+              <img src="/person.svg" className="absolute left-[18px] top-[14px] w-[15px] h-[16px] max-lg:left-[14px]"/>
             </button>
           </Link>
         </div>
@@ -54,19 +54,19 @@ export const Header = () => {
             <div className="w-screen flex justify-around pt-[4px] pl-[40px] pr-[40px]">
                 <Link href={"/"}>
                     <button className="h-[50px] w-[50px] rounded-[10px] flex flex-col items-center cursor-pointer transition duration-200 active:border-b-[2px] active:border-b-[#6D5B67] active:bg-[rgba(0,0,0,0.2)] m-[2px] p-[2px]">
-                        <img src="house.svg" className="w-[20px] h-[20px]"></img>
+                        <img src="/house.svg" className="w-[20px] h-[20px]"></img>
                         <div className="text-[12px] text-[#6D5B67] font-medium mt-[2px]">Нүүр</div>
                     </button>
                 </Link>
                 <Link href={"/search"}>
                     <button className="h-[50px] w-[50px] rounded-[10px] flex flex-col items-center cursor-pointer transition duration-200 active:border-b-[2px] active:border-b-[#6D5B67] active:bg-[rgba(0,0,0,0.2)] m-[2px] p-[2px]">
-                        <img src="magnifyingglass.svg" className="w-[20px] h-[20px]"></img>
+                        <img src="/magnifyingglass.svg" className="w-[20px] h-[20px]"></img>
                         <div className="text-[12px] text-[#6D5B67] font-medium mt-[2px]">Хайлт</div>
                     </button>
                 </Link>
                 <Link href={"/sign-in"}>
                     <button className="h-[50px] w-[50px] rounded-[10px] flex flex-col items-center cursor-pointer transition duration-200 active:border-b-[2px] active:border-b-[#6D5B67] active:bg-[rgba(0,0,0,0.2)] m-[2px] p-[2px]">
-                        <img src="person.svg" className="w-[20px] h-[20px]"></img>
+                        <img src="/person.svg" className="w-[20px] h-[20px]"></img>
                         <div className="text-[12px] text-[#6D5B67] font-medium mt-[2px]">Нэвтрэх</div>
                     </button>
                 </Link>
