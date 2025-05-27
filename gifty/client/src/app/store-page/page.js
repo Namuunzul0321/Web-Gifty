@@ -1,11 +1,11 @@
 "use client";
 
-import { StorePage } from "@/components/StorePage";
+import { HomePage } from "@/components/homepage/HomePage";
 
 export default function Page() {
   return (
     <div>
-      <StorePage />
+      <HomePage />
     </div>
   );
 }

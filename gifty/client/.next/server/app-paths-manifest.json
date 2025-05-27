@@ -1,6 +1,5 @@
 {
-  "/page": "app/page.js",
-  "/sags/page": "app/sags/page.js",
-  "/bayruud/[id]/page": "app/bayruud/[id]/page.js",
-  "/delguuruud/[id]/page": "app/delguuruud/[id]/page.js"
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/search/page": "app/search/page.js",
+  "/page": "app/page.js"
 }

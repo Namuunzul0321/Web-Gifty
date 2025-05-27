@@ -22,17 +22,6 @@ const occasions = [
   { name: "New Year", date: "12.31", img: "/bayruud/new_year.png", link: "/bayruud/15" },
 ];
 
-const dummyProducts = Array(10).fill({
-  storeName: "Store Name",
-  category: "Category",
-  storeImg: "Group.svg",
-  productImg: "Group.svg",
-  productName: "Product Name",
-  productPrice: "1’000",
-  ratings: "0",
-  rate: 1,
-});
-
 export const HomePage = () => {
   const [user, setUser] = useState(null);
   const [products, setProducts] = useState([]);
@@ -54,10 +43,23 @@ export const HomePage = () => {
     })();
   }, []);
 
+  // Map real product data to match UI component props with dummy filler
+  const mappedProducts = products.map((p) => ({
+    storeName: "Dummy Store",
+    category: "Category",
+    storeImg: "Group.svg",
+    productImg: "Group.svg",
+    productName: p.name || "No Name",
+    productPrice: `${p.price?.toLocaleString()}₮` || "Unknown",
+    ratings: "0",
+    rate: 1,
+  }));
+
   return (
     <div className="overflow-x-hidden overflow-y-hidden flex flex-col items-center gap-[20px]">
       <Header />
       <div className="w-screen h-[30px]" />
+
       {user?.isAdmin && (
         <>
           <button
@@ -98,10 +100,11 @@ export const HomePage = () => {
       <SpecialShops />
 
       {/* Categories */}
-      {[dummyProducts, dummyProducts.slice(0, 10), dummyProducts.slice(0, 2)].map(
+      {[mappedProducts, mappedProducts.slice(0, 10), mappedProducts.slice(0, 2)].map(
         (categoryProducts, idx) => {
           const isSpecial = idx === 1;
           const title = "Category";
+
           return (
             <div key={idx} className="w-screen flex justify-center">
               <div className="w-[1575px]">
@@ -111,12 +114,9 @@ export const HomePage = () => {
                 <div className="flex w-full gap-[39px] flex-wrap justify-center max-sm:gap-[10px]">
                   {categoryProducts.map((product, i) => {
                     if (isSpecial) {
-                      return (
-                        <ProductButtonSpecial key={i} {...product} />
-                      );
+                      return <ProductButtonSpecial key={i} {...product} />;
                     }
-                    if (idx === 0 && i === 0 || i === categoryProducts.length - 1) {
-                      // First and last item as ProductButtonLong for first and third category
+                    if ((idx === 0 && i === 0) || i === categoryProducts.length - 1) {
                       return <ProductButtonLong key={i} {...product} />;
                     }
                     return <ProductButton key={i} {...product} />;
